@@ -1,0 +1,94 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "name": "BMW",
+      "picture": "https://www.iguides.ru/upload/iblock/bfc/saaj70a20ym53mcmb6mgwq5eiqme71q6.jpg",
+      "price": 50000
+    },
+    {
+      "id": 2,
+      "name": "Jeely",
+      "picture": "https://китайские-автомобили.рф/wp-content/uploads/2022/01/geely_coolray_static_34_1000.jpg",
+      "price": 25000
+    },
+    {
+      "id": 3,
+      "name": "Skoda",
+      "picture": "https://st3.zr.ru/_ah/img/V3y1K75omY_e6jp2ewrOAA=s800",
+      "price": 35000
+    },
+    {
+      "id": 4,
+      "name": "Mercedes",
+      "picture": "https://motor.ru/thumb/1500x0/filters:quality(75):no_upscale()/imgs/2022/01/27/11/5197968/f7aba1d92862152a77a6fcf637d2ea171e1defe8.jpg",
+      "price": 57000
+    },
+    {
+      "id": 5,
+      "name": "Skoda",
+      "picture": "https://5koleso.ru/wp-content/uploads/2022/01/img_5769-1024x683.jpg",
+      "price": 21000
+    },
+    {
+      "id": 6,
+      "name": "Mercedes",
+      "picture": "https://s0.rbk.ru/v6_top_pics/media/img/6/12/755809115374126.jpg",
+      "price": 125000
+    },
+    {
+      "id": 7,
+      "name": "Mercedes",
+      "picture": "https://avcdn.av.by/wisiwigimage/0001/2942/6322.jpeg",
+      "price": 157000
+    },
+    {
+      "id": 8,
+      "name": "Bugatti",
+      "picture": "https://gamerwall.pro/uploads/posts/2022-09/1663108309_1-gamerwall-pro-p-chetkie-mashini-krasivo-1.jpg",
+      "price": 2000000
+    },
+    {
+      "id": 9,
+      "name": "Tesla",
+      "picture": "https://akket.com/wp-content/uploads/2022/03/Takogo-eshhe-nikto-ne-delal.-Tesla-nachala-massovo-shtrafovat-vladeltsev-avtomobilei-na-20-ot-stoimosti-mashiny-2.jpg",
+      "price": 92000
+    },
+    {
+      "id": 10,
+      "name": "Nissan",
+      "picture": "https://resizer.mail.ru/p/285c6939-a49d-5876-9aad-cc30b614d98b/AQABfc8WKSFEmLDzWRvlw3_9z-1FXnV-S62siNqkSDNt2kH1IrRgk2UjkA8bADiMr9OMgTt0rrQ0y6BuFqOAYRqthXQ.jpg",
+      "price": 112000
+    },
+    {
+      "id": 11,
+      "name": "Lambargini",
+      "picture": "https://www.avtovzglyad.ru/media/article/DFDFDF.jpg.740x555_q85_box-0%2C0%2C740%2C555_crop_detail_upscale.jpg",
+      "price": 253000
+    },
+    {
+      "id": 12,
+      "name": "Bugatti",
+      "picture": "https://avtonov.info/wp-content/uploads/2019/01/bugatti-veyron.jpg",
+      "price": 1500000
+    },
+    {
+      "id": 13,
+      "name": "Tesla",
+      "picture": "https://www.ixbt.com/img/n1/news/2020/7/4/Tesla-wrap-hero_large.jpg",
+      "price": 101000
+    },
+    {
+      "id": 14,
+      "name": "Dodge",
+      "picture": "https://krot.info/uploads/posts/2021-10/1634985096_63-krot-info-p-dog-mashina-mashini-krasivo-foto-69.jpg",
+      "price": 172000
+    },
+    {
+      "id": 15,
+      "name": "Lexus",
+      "picture": "https://autoreview.ru/images/Article/1635/Article_163580_860_575.jpg",
+      "price": 78000
+    }
+  ]
+}
