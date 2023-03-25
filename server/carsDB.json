@@ -89,6 +89,24 @@
       "name": "Lexus",
       "picture": "https://autoreview.ru/images/Article/1635/Article_163580_860_575.jpg",
       "price": 78000
+    },
+    {
+      "id": 16,
+      "name": "KIA",
+      "price": 28000,
+      "picture": "https://files.aster.kz/market/users/2023-1/c745493_8db570e2-6fd1-4d8b-9e1d-7a2a4879d992_M_blur_resolution1200x733.webp"
+    },
+    {
+      "id": 17,
+      "name": "AstonMartin",
+      "price": 350000,
+      "picture": "https://auto.bigmir.net/i/52/39/92/1/5239921/332c3a99d0b2976cb1d1c7c72325ebe9-quality_75Xresize_1Xallow_enlarge_0Xw_800Xh_0.jpg"
+    },
+    {
+      "id": 18,
+      "name": "McLaren",
+      "price": 450000,
+      "picture": "https://top-fun.ru/wp-content/uploads/2022/04/Title-Best-Look-Auto-Forza-Horizon-5-TF.webp"
     }
   ]
 }

@@ -1,17 +1,17 @@
 import styles from "../home/Home.module.scss";
 import { FC } from "react";
 
-export interface Car {
+export interface car {
   name: string;
   picture: string;
   price: number;
 }
 
-interface CarItem {
-  car: Car;
+interface carItemProps {
+  car: car;
 }
 
-export const CarItem: FC<CarItem> = ({car}) => {
+export const CarItem: FC<carItemProps> = ({ car }) => {
   return (
     <div className={styles.item}>
       <div className={styles.image__wrapper}>
