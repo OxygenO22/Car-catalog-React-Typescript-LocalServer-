@@ -1,7 +1,9 @@
 import styles from "../home/Home.module.scss";
 import { FC } from "react";
+import { Link, useParams } from "react-router-dom";
 
 export interface car {
+  id: number;
   name: string;
   picture: string;
   price: number;
@@ -27,7 +29,7 @@ export const CarItem: FC<carItemProps> = ({ car }) => {
             minimumFractionDigits: 0,
           }).format(car.price)}
         </p>
-        <button>Read more</button>
+        <Link to={`/car/${car.id}`}>Read more</Link>
       </div>
     </div>
   );

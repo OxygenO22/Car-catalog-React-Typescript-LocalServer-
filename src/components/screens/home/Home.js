@@ -3,6 +3,7 @@ import { CarItem } from "../cars/CarItem";
 import styles from "./Home.module.scss";
 import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
+import axios from "axios";
 
 /* interface Cars {
   id: number;
@@ -16,22 +17,21 @@ export const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
+console.log("totalCount", totalCount);
 
   useEffect(() => {
     if (fetching) {
-      fetch(CARS_URL + `?_limit=4&_page=${currentPage}`)
+      console.log("fetching")
+      axios.get(CARS_URL + `?_limit=4&_page=${currentPage}`)
       .then((response) => {
-        setTotalCount(response.headers.get("x-total-count"))
-        return response.json();
-      })
-      .then(carsResp => {
-        setCars([...cars, ...carsResp]);
+        setCars([...cars, ...response.data]);
         setCurrentPage(prevState => prevState + 1);
+        setTotalCount(response.headers["x-total-count"]);
       })
       .catch((error) => console.log(error))
       .finally(() => setFetching(false))
     }
-  }, [fetching])
+  }, [fetching]);
 
   useEffect(() => {
     document.addEventListener("scroll", scrollHandler);
@@ -41,7 +41,8 @@ export const Home = () => {
   }, [])
 
   const scrollHandler = (e/* : MouseEvent */) => {
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 && cars.length <= totalCount) {
+    
+    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 /* && cars.length < totalCount */) {
       setFetching(true);
     }
   }
