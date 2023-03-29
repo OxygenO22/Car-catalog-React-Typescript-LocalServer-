@@ -4,6 +4,7 @@ import styles from "./Home.module.scss";
 import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import axios from "axios";
+import { FindingSorting } from "../finding-sorting/FindingSorting";
 
 /* interface Cars {
   id: number;
@@ -17,11 +18,14 @@ export const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
+
+  const [searchValue, setSearchValue] = useState("");
+  const [carsFiltered, setCarsFiltered] = useState(cars);
+
 console.log("totalCount", totalCount);
 
   useEffect(() => {
     if (fetching) {
-      console.log("fetching")
       axios.get(CARS_URL + `?_limit=4&_page=${currentPage}`)
       .then((response) => {
         setCars([...cars, ...response.data]);
@@ -54,13 +58,41 @@ console.log("totalCount", totalCount);
     .catch((error) => console.log(error));
 }, []); */
 
+const filterCars = (searchText, listOfCars) => {
+  if (!searchText) {
+    return listOfCars;
+  }
+  return listOfCars.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()));
+}
+
+useEffect(() => {
+    const Debounce = setTimeout(() => {
+      const filteredCars = filterCars(searchValue, cars);
+      setCarsFiltered(filteredCars);
+    }, 300);
+    return () => clearTimeout(Debounce)
+  }, [searchValue])
+
+
   return (
     <div className={styles.prime__wrapper}>
       <h1 className={styles.title}>Cars catalog</h1>
       <CreateCarForm car={cars} />
+      {/* <FindingSorting cars={cars} /> */}
+
+      <form>
+        <input 
+          className={styles.input} 
+          type="text" 
+          placeholder="Find"
+          value={searchValue}
+          onChange={e => setSearchValue(e.target.value)} 
+        />
+      </form>
+
       <div className={styles.cars__wrapper}>
         {cars.length ? (
-          cars.map((car) => <CarItem key={car.id} car={car} />)
+          carsFiltered.map((car) => <CarItem key={car.id} car={car} />)
         ) : (
           <p>Loading...</p>
         )}

@@ -10,7 +10,6 @@ export const Router = () => {
       <Routes>
         <Route element={<Home/>} path="/" />
         <Route element={<CarDetail/>} path="/car/:id" />
-
         <Route element={<div>Not found</div>} path="*" />
       </Routes>
     </BrowserRouter>
