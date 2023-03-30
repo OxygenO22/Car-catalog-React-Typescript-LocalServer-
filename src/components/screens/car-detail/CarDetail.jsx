@@ -21,7 +21,7 @@ export const CarDetail = () => {
 
   return (
     <div>
-      <Link to="/">Back</Link>
+      <Link style={{color: "white", marginBottom: "20px"}} to="/">Back</Link>
       <CarItem car={car} />
     </div>
   )

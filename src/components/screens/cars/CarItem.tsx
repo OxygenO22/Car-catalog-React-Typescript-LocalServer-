@@ -29,7 +29,12 @@ export const CarItem: FC<carItemProps> = ({ car }) => {
             minimumFractionDigits: 0,
           }).format(car.price)}
         </p>
-        <Link to={`/car/${car.id}`}>Read more</Link>
+        <Link
+          style={{ color: "white", marginBottom: "20px" }}
+          to={`/car/${car.id}`}
+        >
+          Read more
+        </Link>
       </div>
     </div>
   );

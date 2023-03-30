@@ -5,6 +5,7 @@ import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import axios from "axios";
 import { FindingSorting } from "../finding-sorting/FindingSorting";
+import { Link } from "react-router-dom";
 
 /* interface Cars {
   id: number;
@@ -20,12 +21,30 @@ export const Home = () => {
   const [totalCount, setTotalCount] = useState(0);
 
   const [searchValue, setSearchValue] = useState("");
-  const [carsFiltered, setCarsFiltered] = useState(cars);
+  const [carsFiltered, setCarsFiltered] = useState([]);
 
 console.log("totalCount", totalCount);
 
+  const filterCars = (searchText, listOfCars) => {
+  if (!searchText) {
+    return listOfCars;
+  }
+  return listOfCars.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()));
+  }
+
   useEffect(() => {
-    if (fetching) {
+    axios.get(CARS_URL)
+      .then((response) => {
+        setCarsFiltered(response.data);
+      })
+      .catch((error) => console.log(error))
+  }, []);
+
+  console.log(carsFiltered)
+
+  
+  useEffect(() => {
+    if (fetching && searchValue === "") {
       axios.get(CARS_URL + `?_limit=4&_page=${currentPage}`)
       .then((response) => {
         setCars([...cars, ...response.data]);
@@ -34,7 +53,7 @@ console.log("totalCount", totalCount);
       })
       .catch((error) => console.log(error))
       .finally(() => setFetching(false))
-    }
+    } 
   }, [fetching]);
 
   useEffect(() => {
@@ -42,7 +61,7 @@ console.log("totalCount", totalCount);
     return () => {
       document.removeEventListener("scroll", scrollHandler)
     }
-  }, [])
+  }, []);
 
   const scrollHandler = (e/* : MouseEvent */) => {
     
@@ -51,6 +70,18 @@ console.log("totalCount", totalCount);
     }
   }
 
+  
+
+  
+
+useEffect(() => {
+    const Debounce = setTimeout(() => {
+      const filteredCars = filterCars(searchValue, carsFiltered);
+      setCars(filteredCars);
+    }, 300);
+    return () => clearTimeout(Debounce)
+  }, [searchValue])
+
 /* useEffect(() => {
   fetch(CARS_URL)
     .then((response) => response.json())
@@ -58,25 +89,13 @@ console.log("totalCount", totalCount);
     .catch((error) => console.log(error));
 }, []); */
 
-const filterCars = (searchText, listOfCars) => {
-  if (!searchText) {
-    return listOfCars;
-  }
-  return listOfCars.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()));
-}
 
-useEffect(() => {
-    const Debounce = setTimeout(() => {
-      const filteredCars = filterCars(searchValue, cars);
-      setCarsFiltered(filteredCars);
-    }, 300);
-    return () => clearTimeout(Debounce)
-  }, [searchValue])
 
 
   return (
     <div className={styles.prime__wrapper}>
       <h1 className={styles.title}>Cars catalog</h1>
+      <Link style={{color: "white", marginBottom: "20px"}} to="/chat">Chat</Link>
       <CreateCarForm car={cars} />
       {/* <FindingSorting cars={cars} /> */}
 
@@ -91,9 +110,14 @@ useEffect(() => {
       </form>
 
       <div className={styles.cars__wrapper}>
-        {cars.length ? (
-          carsFiltered.map((car) => <CarItem key={car.id} car={car} />)
-        ) : (
+        {cars.length && searchValue === "" ? (
+          cars.map((car) => <CarItem key={car.id} car={car} />)
+        ) 
+        : carsFiltered.length && searchValue !== "" 
+        ?
+        (carsFiltered.map((car) => <CarItem key={car.id} car={car} />)) 
+        :
+        (
           <p>Loading...</p>
         )}
       </div>
