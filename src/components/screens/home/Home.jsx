@@ -95,7 +95,8 @@ useEffect(() => {
   return (
     <div className={styles.prime__wrapper}>
       <h1 className={styles.title}>Cars catalog</h1>
-      <Link style={{color: "white", marginBottom: "20px"}} to="/chat">Chat</Link>
+      <Link style={{color: "white", marginBottom: "20px"}} to="/chatLP">ChatLP</Link>
+      <Link style={{color: "white", marginBottom: "20px"}} to="/chatES">ChatES</Link>
       <CreateCarForm car={cars} />
       {/* <FindingSorting cars={cars} /> */}
 

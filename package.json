@@ -30,7 +30,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server -w server/carsDB.json -p 3001",
-    "start-chat": "nodemon server/longpulling.js"
+    "start-chat": "nodemon server/eventsource.js"
   },
   "eslintConfig": {
     "extends": [
