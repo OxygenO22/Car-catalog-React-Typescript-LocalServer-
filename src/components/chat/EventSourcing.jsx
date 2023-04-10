@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./LongPulling.module.scss";
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { RouteButton } from '../ui/buttons/RouteButton';
 
 export const EventSourcing = () => {
   const [messages, setMessages] = useState([]);
@@ -29,7 +29,7 @@ export const EventSourcing = () => {
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>Cars Chat</h1>
-      <Link style={{color: "white", marginBottom: "20px"}} to="/">Back</Link>
+      <RouteButton path="/" name="Back" />
 
       <div className={styles.form}>
         <input 

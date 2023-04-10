@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from "react";
 import styles from "./CreateCarForm.module.scss";
 import { CARS_URL } from "../../../constants";
 import requestApi from "../../../request";
+import { Button } from "../../ui/buttons/Button";
 
 
 export interface car {
@@ -41,8 +42,12 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
       price: +data.price,
       picture: data.picture,
     };
-    requestApi(CARS_URL, "POST", newCar);
-    setData(clearData);
+    if (data.name !== "" && data.price !== "" && data.picture !== "") {
+      requestApi(CARS_URL, "POST", newCar);
+      setData(clearData);
+    } else {
+      alert("fill all fields");
+    }
   };
 
   return (
@@ -82,6 +87,8 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
       />
 
       <button onClick={(e) => createCar(e)}>Create Card</button>
+
+      {/* <Button onClick={(e: any) => createCar(e)} name="Create Card" /> */}
     </form>
   );
 };

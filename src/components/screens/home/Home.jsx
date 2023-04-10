@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { CarItem } from "../cars/CarItem";
 import styles from "./Home.module.scss";
 import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import axios from "axios";
-import { FindingSorting } from "../finding-sorting/FindingSorting";
-import { Link } from "react-router-dom";
+import { RouteButton } from "../../ui/buttons/RouteButton";
+
 
 /* interface Cars {
   id: number;
@@ -13,6 +13,9 @@ import { Link } from "react-router-dom";
   picture: string;
   price: number;
 } */
+
+
+
 
 export const Home = () => {
   const [cars, setCars] = useState/* <Cars[]> */([]);
@@ -22,8 +25,6 @@ export const Home = () => {
 
   const [searchValue, setSearchValue] = useState("");
   const [carsFiltered, setCarsFiltered] = useState([]);
-
-console.log("totalCount", totalCount);
 
   const filterCars = (searchText, listOfCars) => {
   if (!searchText) {
@@ -40,9 +41,6 @@ console.log("totalCount", totalCount);
       .catch((error) => console.log(error))
   }, []);
 
-  console.log(carsFiltered)
-
-  
   useEffect(() => {
     if (fetching && searchValue === "") {
       axios.get(CARS_URL + `?_limit=4&_page=${currentPage}`)
@@ -95,8 +93,11 @@ useEffect(() => {
   return (
     <div className={styles.prime__wrapper}>
       <h1 className={styles.title}>Cars catalog</h1>
-      <Link style={{color: "white", marginBottom: "20px"}} to="/chatLP">ChatLP</Link>
-      <Link style={{color: "white", marginBottom: "20px"}} to="/chatES">ChatES</Link>
+      <div className={styles.buttons__wrapper}>
+        <RouteButton path="/chatLP" name="ChatLP"/>
+        <RouteButton path="/chatES" name="ChatES"/>
+        <RouteButton path="/Redux" name="Redux"/>
+      </div>
       <CreateCarForm car={cars} />
       {/* <FindingSorting cars={cars} /> */}
 
