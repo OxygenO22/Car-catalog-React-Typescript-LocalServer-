@@ -11,14 +11,20 @@ export const ReduxBank = () => {
   const dispatch = useDispatch();
   const cash = useSelector(state => state.cash);
 
-  const addCash = () => {
-    dispatch({type: "ADD_CASH", payload: 5});
-    console.log("i work")
+  const addCash = (cash) => {
+    if (!NaN) {
+      dispatch({type: "ADD_CASH", payload: cash});
+      } else {
+        alert("You must fill only numbers")
+      }
   }
 
-  const getCash = () => {
-    dispatch({type: "GET_CASH", payload: 5});
-     console.log("i'm too work")
+  const getCash = (cash) => {
+    if (!NaN) {
+      dispatch({type: "GET_CASH", payload: cash});
+    } else {
+      alert("You must fill only numbers")
+    }
   }
 
   return (
@@ -28,10 +34,8 @@ export const ReduxBank = () => {
         <p className={styles.cash__text}>{cash}</p>
       </div>
       <div className={styles.cashbutton__wrapper}>
-        <button onClick={() => addCash()}>Add Cash</button>
-        <button onClick={() => getCash()}>Get Cash</button>
-        {/* <Button onClick={() => addCash()} name="Add Cash"/>
-        <Button onClick={() => getCash()} name="Get Cash"/> */}
+        <Button onClick={() => addCash(+prompt("You must fill only numbers"))} name="Add Cash"/>
+        <Button onClick={() => getCash(+prompt("You must fill only numbers"))} name="Get Cash"/>
       </div>
 
     </div>
