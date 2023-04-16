@@ -1,6 +1,7 @@
 import styles from "../home/Home.module.scss";
 import { FC } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useActions } from "../../hooks/useActions";
 
 export interface car {
   id: number;
@@ -14,6 +15,8 @@ interface carItemProps {
 }
 
 export const CarItem: FC<carItemProps> = ({ car }) => {
+  const {addItem} = useActions();
+
   return (
     <div className={styles.item}>
       <div className={styles.image__wrapper}>

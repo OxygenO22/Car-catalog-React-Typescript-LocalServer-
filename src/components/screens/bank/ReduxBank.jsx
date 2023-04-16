@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RouteButton } from "../../ui/buttons/RouteButton";
 import { Button } from "../../ui/buttons/Button";
 import { MainTitle } from "../../ui/title/MainTitle";
+import { useActions } from "../../hooks/useActions";
 
 
 
@@ -12,7 +13,9 @@ export const ReduxBank = () => {
   const dispatch = useDispatch();
   const cash = useSelector(state => state.cash);
 
-  const addCash = (cash) => {
+  const {addCash, getCash} = useActions();
+
+  /* const addCash = (cash) => {
     if (!NaN) {
       dispatch({type: "ADD_CASH", payload: cash});
       } else {
@@ -26,7 +29,7 @@ export const ReduxBank = () => {
     } else {
       alert("You must fill only numbers")
     }
-  }
+  } */
 
   return (
     <div className={styles.reduxbank__wrapper}>
