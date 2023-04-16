@@ -5,6 +5,7 @@ import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import axios from "axios";
 import { RouteButton } from "../../ui/buttons/RouteButton";
+import { MainTitle } from "../../ui/title/MainTitle";
 
 
 /* interface Cars {
@@ -68,10 +69,6 @@ export const Home = () => {
     }
   }
 
-  
-
-  
-
 useEffect(() => {
     const Debounce = setTimeout(() => {
       const filteredCars = filterCars(searchValue, carsFiltered);
@@ -92,11 +89,12 @@ useEffect(() => {
 
   return (
     <div className={styles.prime__wrapper}>
-      <h1 className={styles.title}>Cars catalog</h1>
+      <MainTitle name="Cars catalog" />
       <div className={styles.buttons__wrapper}>
         <RouteButton path="/chatLP" name="ChatLP"/>
         <RouteButton path="/chatES" name="ChatES"/>
         <RouteButton path="/Redux" name="Redux"/>
+        <RouteButton path="/ReduxToolkit" name="ReduxToolkit"/>
       </div>
       <CreateCarForm car={cars} />
       {/* <FindingSorting cars={cars} /> */}

@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./ReduxBank.module.scss"
-import { RouteButton } from "../ui/buttons/RouteButton";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "../ui/buttons/Button";
+import { RouteButton } from "../../ui/buttons/RouteButton";
+import { Button } from "../../ui/buttons/Button";
+import { MainTitle } from "../../ui/title/MainTitle";
 
 
 
@@ -29,6 +30,7 @@ export const ReduxBank = () => {
 
   return (
     <div className={styles.reduxbank__wrapper}>
+      <MainTitle name="Redux Bank" />
       <RouteButton path="/" name="Back" />
       <div className={styles.cash__wrapper}>
         <p className={styles.cash__text}>{cash}</p>

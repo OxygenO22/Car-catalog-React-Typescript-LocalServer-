@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from "./LongPulling.module.scss";
 import axios from 'axios';
 import { RouteButton } from '../ui/buttons/RouteButton';
+import { MainTitle } from '../ui/title/MainTitle';
+import { Button } from '../ui/buttons/Button';
 
 export const EventSourcing = () => {
   const [messages, setMessages] = useState([]);
@@ -28,7 +30,7 @@ export const EventSourcing = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Cars Chat</h1>
+      <MainTitle name="Chat - Event Sourcing" />
       <RouteButton path="/" name="Back" />
 
       <div className={styles.form}>
@@ -39,7 +41,7 @@ export const EventSourcing = () => {
           value={value}
           onChange={e => setValue(e.target.value)} 
         />
-        <button onClick={sendMessage}>Send</button>
+        <Button onClick={sendMessage} name="Send message" />
       </div>
       <div >
         {messages.map(mess => 

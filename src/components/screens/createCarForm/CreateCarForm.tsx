@@ -88,7 +88,7 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
 
       {/* <button onClick={(e) => createCar(e)}>Create Card</button> */}
 
-      <Button onClick={(e: any) => createCar(e)} name="Create Card" />
+      <Button onClick={(e: any) => createCar(e)} name="Create Car Card" />
     </form>
   );
 };
