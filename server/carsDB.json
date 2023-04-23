@@ -107,6 +107,12 @@
       "name": "McLaren",
       "price": 450000,
       "picture": "https://top-fun.ru/wp-content/uploads/2022/04/Title-Best-Look-Auto-Forza-Horizon-5-TF.webp"
+    },
+    {
+      "id": 19,
+      "name": "Ferrari 296 GTB",
+      "price": 328,
+      "picture": "https://carwow-uk-wp-1.imgix.net/01_296_GTB_34_ant-scaled.jpg?auto=format&cs=tinysrgb&fit=clip&ixlib=rb-1.1.0&q=60&w=1920"
     }
   ]
 }

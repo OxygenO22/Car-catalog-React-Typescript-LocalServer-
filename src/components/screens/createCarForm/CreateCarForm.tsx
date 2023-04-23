@@ -3,6 +3,7 @@ import styles from "./CreateCarForm.module.scss";
 import { CARS_URL } from "../../../constants";
 import requestApi from "../../../request";
 import { Button } from "../../ui/buttons/Button";
+import { Input } from "../../ui/input/Input";
 
 
 export interface car {
@@ -52,10 +53,9 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
 
   return (
     <form className={styles.form}>
-      <input
-        className={styles.input}
+      <Input
         placeholder="Name"
-        onChange={(e) =>
+        onChange={(e: any) =>
           setData((prev) => ({
             ...prev,
             name: e.target.value,
@@ -63,10 +63,9 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
         }
         value={data.name}
       />
-      <input
-        className={styles.input}
+      <Input
         placeholder="Price"
-        onChange={(e) =>
+        onChange={(e: any) =>
           setData((prev) => ({
             ...prev,
             price: e.target.value,
@@ -74,10 +73,9 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
         }
         value={data.price}
       />
-      <input
-        className={styles.input}
+      <Input
         placeholder="Picture"
-        onChange={(e) =>
+        onChange={(e: any) =>
           setData((prev) => ({
             ...prev,
             picture: e.target.value,

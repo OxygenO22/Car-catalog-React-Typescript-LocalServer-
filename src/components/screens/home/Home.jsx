@@ -4,8 +4,9 @@ import styles from "./Home.module.scss";
 import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import axios from "axios";
-import { RouteButton } from "../../ui/buttons/RouteButton";
 import { MainTitle } from "../../ui/title/MainTitle";
+import { HomeMenu } from "../../ui/homeMenu/HomeMenu";
+import { Input } from "../../ui/input/Input";
 
 
 /* interface Cars {
@@ -20,6 +21,7 @@ import { MainTitle } from "../../ui/title/MainTitle";
 
 export const Home = () => {
   const [cars, setCars] = useState/* <Cars[]> */([]);
+  const [carsForCreateForm, setCarsForCreateForm] = useState/* <Cars[]> */([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [fetching, setFetching] = useState(true);
   const [totalCount, setTotalCount] = useState(0);
@@ -77,12 +79,12 @@ useEffect(() => {
     return () => clearTimeout(Debounce)
   }, [searchValue])
 
-/* useEffect(() => {
+useEffect(() => {
   fetch(CARS_URL)
     .then((response) => response.json())
-    .then((cars) => setCars(cars))
+    .then((cars) => setCarsForCreateForm(cars))
     .catch((error) => console.log(error));
-}, []); */
+}, []);
 
 
 
@@ -91,21 +93,16 @@ useEffect(() => {
     <div className={styles.prime__wrapper}>
       <MainTitle name="Cars catalog" />
       <div className={styles.buttons__wrapper}>
-        <RouteButton path="/chatLP" name="ChatLP"/>
-        <RouteButton path="/chatES" name="ChatES"/>
-        <RouteButton path="/Redux" name="Redux"/>
-        <RouteButton path="/ReduxToolkit" name="ReduxToolkit"/>
+        <HomeMenu />
       </div>
-      <CreateCarForm car={cars} />
+      <CreateCarForm car={carsForCreateForm} />
       {/* <FindingSorting cars={cars} /> */}
 
       <form>
-        <input 
-          className={styles.input} 
-          type="text" 
+        <Input 
           placeholder="Find"
           value={searchValue}
-          onChange={e => setSearchValue(e.target.value)} 
+          onChange={e => setSearchValue(e.target.value)}
         />
       </form>
 
