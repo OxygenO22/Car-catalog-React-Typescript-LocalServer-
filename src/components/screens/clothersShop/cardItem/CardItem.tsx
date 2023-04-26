@@ -1,8 +1,7 @@
-import React, { FC } from "react";
-import styles from "./CardItem.module.scss";
-import { IProduct } from "../../../../store/product/Product.type";
-import { useGetProductsQuery } from "../../../../store/product/Product.api";
 import { Button } from "../../../ui/buttons/Button";
+import  { FC } from "react";
+import { IProduct } from "../../../../store/product/Product.type";
+import styles from "./CardItem.module.scss";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 

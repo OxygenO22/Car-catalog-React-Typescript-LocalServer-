@@ -1,11 +1,9 @@
-import {
-  FC, useEffect, useState 
-} from "react";
-import styles from "./CreateCarForm.module.scss";
-import { CARS_URL } from "../../../constants";
-import requestApi from "../../../request";
+import {FC, useState} from "react";
 import { Button } from "../../ui/buttons/Button";
+import { CARS_URL } from "../../../constants";
 import { Input } from "../../ui/input/Input";
+import requestApi from "../../../request";
+import styles from "./CreateCarForm.module.scss";
 
 
 export interface car {
@@ -31,10 +29,6 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
     picture: "",
   };
   const [data, setData] = useState(clearData);
-
-  useEffect(() => {
-
-  }, []);
 
   const createCar = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();

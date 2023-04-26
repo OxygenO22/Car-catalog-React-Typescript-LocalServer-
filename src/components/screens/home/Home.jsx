@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { CarItem } from "../cars/CarItem";
-import styles from "./Home.module.scss";
-import { CARS_URL } from "../../../constants";
-import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import axios from "axios";
-import { MainTitle } from "../../ui/title/MainTitle";
-import { HomeMenu } from "../../ui/homeMenu/HomeMenu";
+import { CARS_URL } from "../../../constants";
+import { CarItem } from "../cars/CarItem";
+import { CreateCarForm } from "../createCarForm/CreateCarForm";
 import { Input } from "../../ui/input/Input";
+import { HomeMenu } from "../../ui/homeMenu/HomeMenu";
+import { MainTitle } from "../../ui/title/MainTitle";
+import styles from "./Home.module.scss";
 
 
 /* interface Cars {
@@ -30,64 +30,63 @@ export const Home = () => {
   const [carsFiltered, setCarsFiltered] = useState([]);
 
   const filterCars = (searchText, listOfCars) => {
-  if (!searchText) {
-    return listOfCars;
-  }
-  return listOfCars.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()));
-  }
+    if (!searchText) {
+      return listOfCars;
+    }
+    return listOfCars.filter(({name}) => name.toLowerCase().includes(searchText.toLowerCase()));
+  };
 
   useEffect(() => {
     axios.get(CARS_URL)
       .then((response) => {
         setCarsFiltered(response.data);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
     if (fetching && searchValue === "") {
       axios.get(CARS_URL + `?_limit=4&_page=${currentPage}`)
-      .then((response) => {
-        setCars([...cars, ...response.data]);
-        setCurrentPage(prevState => prevState + 1);
-        setTotalCount(response.headers["x-total-count"]);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => setFetching(false))
+        .then((response) => {
+          setCars([...cars, ...response.data]);
+          setCurrentPage(prevState => prevState + 1);
+          setTotalCount(response.headers["x-total-count"]);
+        })
+        .catch((error) => console.log(error))
+        .finally(() => setFetching(false));
     } 
   }, [fetching]);
 
   useEffect(() => {
     document.addEventListener("scroll", scrollHandler);
     return () => {
-      document.removeEventListener("scroll", scrollHandler)
+      document.removeEventListener("scroll", scrollHandler);
     }
   }, []);
 
   const scrollHandler = (e/* : MouseEvent */) => {
     
-    if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100 /* && cars.length < totalCount */) {
+    if (e.target.documentElement.scrollHeight - 
+      (e.target.documentElement.scrollTop + window.innerHeight) < 
+      100 /* && cars.length < totalCount */) {
       setFetching(true);
     }
-  }
+  };
 
-useEffect(() => {
+  useEffect(() => {
     const Debounce = setTimeout(() => {
       const filteredCars = filterCars(searchValue, carsFiltered);
       setCars(filteredCars);
     }, 300);
-    return () => clearTimeout(Debounce)
-  }, [searchValue])
+    return () => clearTimeout(Debounce);
+  }, [searchValue]);
 
-useEffect(() => {
-  fetch(CARS_URL)
-    .then((response) => response.json())
-    .then((cars) => setCarsForCreateForm(cars))
-    .catch((error) => console.log(error));
-}, []);
-
-
-
+  useEffect(() => {
+    fetch(CARS_URL)
+      .then((response) => response.json())
+      .then((cars) => setCarsForCreateForm(cars))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className={styles.prime__wrapper}>
@@ -110,14 +109,14 @@ useEffect(() => {
         {cars.length && searchValue === "" ? (
           cars.map((car) => <CarItem key={car.id} car={car} />)
         ) 
-        : carsFiltered.length && searchValue !== "" 
-        ?
-        (carsFiltered.map((car) => <CarItem key={car.id} car={car} />)) 
-        :
-        (
-          <p>Loading...</p>
-        )}
+          : carsFiltered.length && searchValue !== "" 
+          ?
+          (carsFiltered.map((car) => <CarItem key={car.id} car={car} />)) 
+          :
+          (
+            <p>Loading...</p>
+          )}
       </div>
     </div>
   );
-}
+};

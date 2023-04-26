@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Button } from "../ui/buttons/Button";
+import { MainTitle } from "../ui/title/MainTitle";
+import { RouteButton } from "../ui/buttons/RouteButton";
 import styles from "./LongPulling.module.scss";
-import axios from 'axios';
-import { RouteButton } from '../ui/buttons/RouteButton';
-import { MainTitle } from '../ui/title/MainTitle';
-import { Button } from '../ui/buttons/Button';
 
 export const EventSourcing = () => {
   const [messages, setMessages] = useState([]);
@@ -11,22 +11,23 @@ export const EventSourcing = () => {
 
   useEffect(() => {
     subscribe();
-  }, [])
+  }, []);
 
   const subscribe = async () => {
-   const eventSource = new EventSource("http://localhost:5000/connect");
-   eventSource.onmessage = function (event) {
-    const message = JSON.parse(event.data);
-    setMessages(prev => [message, ...prev]);
-   }
-  }
+    const eventSource = new EventSource("http://localhost:5000/connect");
+    eventSource.onmessage = function (event) {
+      const message = JSON.parse(event.data);
+      setMessages(prev => [message, ...prev]);
+    };
+  };
 
   const sendMessage = async () => {
-    await axios.post("http://localhost:5000/new-messages", {
+    await axios.post("http://localhost:5000/new-messages", 
+    {
       message: value,
       id: Date.now()
-    })
-  }
+    });
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -51,5 +52,5 @@ export const EventSourcing = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};

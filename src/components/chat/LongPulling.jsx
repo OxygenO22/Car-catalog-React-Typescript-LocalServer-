@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Button } from "../ui/buttons/Button";
+import { MainTitle } from "../ui/title/MainTitle";
+import { RouteButton } from "../ui/buttons/RouteButton";
 import styles from "./LongPulling.module.scss";
-import axios from 'axios';
-import { RouteButton } from '../ui/buttons/RouteButton';
-import { MainTitle } from '../ui/title/MainTitle';
-import { Button } from '../ui/buttons/Button';
 
 export const LongPulling = () => {
   const [messages, setMessages] = useState([]);
@@ -11,7 +11,7 @@ export const LongPulling = () => {
 
   useEffect(() => {
     subscribe();
-  }, [])
+  }, []);
 
   const subscribe = async () => {
     try {
@@ -21,16 +21,17 @@ export const LongPulling = () => {
     } catch (e) {
       setTimeout(() => {
         subscribe();
-      }, 500)
+      }, 500);
     }
-  }
+  };
 
   const sendMessage = async () => {
-    await axios.post("http://localhost:5000/new-messages", {
+    await axios.post("http://localhost:5000/new-messages", 
+    {
       message: value,
       id: Date.now()
-    })
-  }
+    });
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -55,5 +56,5 @@ export const LongPulling = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};

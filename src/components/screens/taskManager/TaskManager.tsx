@@ -1,7 +1,6 @@
-import React from "react";
-import styles from "./TaskManager.module.scss";
 import { MainTitle } from "../../ui/title/MainTitle";
 import { RouteButton } from "../../ui/buttons/RouteButton";
+import styles from "./TaskManager.module.scss";
 
 export const TaskManager = () => {
   return (

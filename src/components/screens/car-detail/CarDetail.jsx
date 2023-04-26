@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { CarItem } from "../cars/CarItem";
 import axios from "axios";
+import { CarItem } from "../cars/CarItem";
 import { CARS_URL } from "../../../constants";
 
 export const CarDetail = () => {
@@ -10,19 +10,19 @@ export const CarDetail = () => {
 
   useEffect(() => {
     if (!id)  return;
-      axios.get(CARS_URL + `?id=${id}`)
+    axios.get(CARS_URL + `?id=${id}`)
       .then((response) => {
         setCar(response.data[0]);
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   }, [id]);
 
-  (!car) && <p>Loading...</p>
+  (!car) && <p>Loading...</p>;
 
   return (
     <div>
       <Link style={{color: "white", marginBottom: "20px"}} to="/">Back</Link>
       <CarItem car={car} />
     </div>
-  )
-}
+  );
+};

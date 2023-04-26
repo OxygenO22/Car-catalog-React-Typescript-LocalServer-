@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import styles from "./RouteButton.module.scss";
+import { FC } from "react";
 import { Link } from "react-router-dom";
+import styles from "./RouteButton.module.scss";
 
 interface IRouteButton {
   path: string;

@@ -1,11 +1,10 @@
-import React from "react";
-import styles from "./ClothersShop.module.scss";
-import { RouteButton } from "../../ui/buttons/RouteButton";
-import { MainTitle } from "../../ui/title/MainTitle";
 import { CardItem } from "./cardItem/CardItem";
-import { useGetProductsQuery } from "../../../store/product/Product.api";
-import { IProduct } from "../../../store/product/Product.type";
 import { CartDropdown } from "./cartDropdown/CartDropdown";
+import { IProduct } from "../../../store/product/Product.type";
+import { MainTitle } from "../../ui/title/MainTitle";
+import { RouteButton } from "../../ui/buttons/RouteButton";
+import styles from "./ClothersShop.module.scss";
+import { useGetProductsQuery } from "../../../store/product/Product.api";
 
 export const ClothersShop = () => {
   const {

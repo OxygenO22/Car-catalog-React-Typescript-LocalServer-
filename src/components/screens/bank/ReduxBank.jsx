@@ -1,9 +1,8 @@
-import React from "react";
-import styles from "./ReduxBank.module.scss"
 import { useDispatch, useSelector } from "react-redux";
-import { RouteButton } from "../../ui/buttons/RouteButton";
 import { Button } from "../../ui/buttons/Button";
 import { MainTitle } from "../../ui/title/MainTitle";
+import { RouteButton } from "../../ui/buttons/RouteButton";
+import styles from "./ReduxBank.module.scss";
 import { useActions } from "../../hooks/useActions";
 
 
@@ -44,5 +43,5 @@ export const ReduxBank = () => {
       </div>
 
     </div>
-  )
-}
+  );
+};

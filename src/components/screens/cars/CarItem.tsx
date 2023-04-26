@@ -1,6 +1,6 @@
-import styles from "../home/Home.module.scss";
 import { FC } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import styles from "../home/Home.module.scss";
 import { useActions } from "../../hooks/useActions";
 
 export interface car {

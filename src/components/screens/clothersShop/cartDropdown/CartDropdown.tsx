@@ -1,11 +1,10 @@
-import React from "react";
+import { Button } from "../../../ui/buttons/Button";
+import { IProduct } from "../../../../store/product/Product.type";
+import { MainTitle } from "../../../ui/title/MainTitle";
 import styles from "./CartDropdown.module.scss";
 import { useOutside } from "../../../hooks/useOutside";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import { Button } from "../../../ui/buttons/Button";
-import { IProduct } from "../../../../store/product/Product.type";
 import { useActions } from "../../../hooks/useActions";
-import { MainTitle } from "../../../ui/title/MainTitle";
 
 export const CartDropdown = () => {
   const {

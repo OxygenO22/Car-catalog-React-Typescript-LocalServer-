@@ -1,6 +1,6 @@
 import { bindActionCreators } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart/cart.slice";
+import { useDispatch } from "react-redux";
 
 const allActions = {...cartActions,};
 
