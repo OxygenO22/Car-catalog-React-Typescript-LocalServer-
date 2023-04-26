@@ -1,4 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import {
+  FC, useEffect, useState 
+} from "react";
 import styles from "./CreateCarForm.module.scss";
 import { CARS_URL } from "../../../constants";
 import requestApi from "../../../request";
@@ -32,7 +34,7 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
 
   useEffect(() => {
 
-  }, [])
+  }, []);
 
   const createCar = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -56,30 +58,24 @@ export const CreateCarForm: FC<createCarFormProps> = ({ car }) => {
       <Input
         placeholder="Name"
         onChange={(e: any) =>
-          setData((prev) => ({
-            ...prev,
-            name: e.target.value,
-          }))
+          setData((prev) => ({...prev,
+            name: e.target.value,}))
         }
         value={data.name}
       />
       <Input
         placeholder="Price"
         onChange={(e: any) =>
-          setData((prev) => ({
-            ...prev,
-            price: e.target.value,
-          }))
+          setData((prev) => ({...prev,
+            price: e.target.value,}))
         }
         value={data.price}
       />
       <Input
         placeholder="Picture"
         onChange={(e: any) =>
-          setData((prev) => ({
-            ...prev,
-            picture: e.target.value,
-          }))
+          setData((prev) => ({...prev,
+            picture: e.target.value,}))
         }
         value={data.picture}
       />

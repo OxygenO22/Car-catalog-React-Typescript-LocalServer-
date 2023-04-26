@@ -49,4 +49,4 @@ export const CardItem: FC<{product: IProduct}> = ({product}) => {
       </div>
     </>
   );
-}
+};

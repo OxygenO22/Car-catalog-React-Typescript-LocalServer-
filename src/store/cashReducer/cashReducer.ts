@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 /* const defaultState = {
   cash: 5,
@@ -15,22 +15,18 @@ export const cashReducer = (state = defaultState, action: any) => {
   }
 }; */
 
-const initialState = {
-  cash: 5
-};
+const initialState = {cash: 5};
 
 export const cashSlice = createSlice({
   name: "cash",
   initialState,
-  reducers: {
-    addCash: (state, action) => {
-      return { ...state, cash: state.cash + action.payload };
-    },
-    getCash: (state, action) => {
-      return { ...state, cash: state.cash - action.payload };
-    },
-  }
-})
+  reducers: {addCash: (state, action) => {
+    return { ...state, cash: state.cash + action.payload };
+  },
+  getCash: (state, action) => {
+    return { ...state, cash: state.cash - action.payload };
+  },}
+});
 
 export const cartReducer = cashSlice.reducer;
 export const cartAction = cashSlice.actions;

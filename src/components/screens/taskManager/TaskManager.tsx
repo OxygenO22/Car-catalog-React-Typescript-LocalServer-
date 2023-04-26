@@ -10,4 +10,4 @@ export const TaskManager = () => {
       <RouteButton path="/" name="Back" />
     </div>
   );
-}
+};

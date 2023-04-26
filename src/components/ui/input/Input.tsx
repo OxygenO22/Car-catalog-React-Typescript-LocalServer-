@@ -16,4 +16,4 @@ export const Input: FC<IInput> = (props) => {
       value={props.value}
     />
   );
-}
+};

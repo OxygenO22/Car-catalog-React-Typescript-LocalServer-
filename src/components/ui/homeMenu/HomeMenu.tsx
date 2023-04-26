@@ -11,4 +11,4 @@ export const HomeMenu = () => {
       <RouteButton path="/TaskManager" name="Task Manager" />
     </>
   );
-}
+};

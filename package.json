@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.16",
     "@types/react": "^18.0.28",
@@ -34,8 +35,8 @@
     "eject": "react-scripts eject",
     "server": "json-server -w server/carsDB.json -p 3001",
     "start-chat": "nodemon server/eventsource.js",
-    "lint": "eslint src/**.tsx src/**.ts",
-    "fix-lint": "eslint src/**.tsx src/**.ts --fix",
+    "lint": "eslint src/**.tsx src/**.ts .",
+    "fix-lint": "eslint src/**.tsx src/**.ts . --fix",
     "format": "npx prettier --write ."
   },
   "eslintConfig": {
@@ -58,6 +59,23 @@
   },
   "devDependencies": {
     "concurrently": "^7.6.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "@types/jest": "^27.5.2",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^16.11.62",
+    "@types/react-datepicker": "^4.4.2",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-facebook-login": "^4.1.5",
+    "@types/react-redux": "^7.1.24",
+    "@types/react": "^18.0.21",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint": "^8.27.0",
+    "gh-pages": "^4.0.0",
+    "prettier": "2.7.1"
   }
 }

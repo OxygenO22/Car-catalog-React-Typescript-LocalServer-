@@ -8,7 +8,9 @@ import { useActions } from "../../../hooks/useActions";
 import { MainTitle } from "../../../ui/title/MainTitle";
 
 export const CartDropdown = () => {
-  const {ref, isShow, setIsShow} = useOutside(false);
+  const {
+    ref, isShow, setIsShow
+  } = useOutside(false);
 
   const {cart} = useTypedSelector(state => state);
 
@@ -18,7 +20,7 @@ export const CartDropdown = () => {
     <div>
       <div className={styles.cart__buttonopen}>
         <Button
-          name={!isShow ? `Open Cart` : `Close Cart`}
+          name={!isShow ? "Open Cart" : "Close Cart"}
           onClick={() => setIsShow(!isShow)}
         />
       </div>
@@ -60,4 +62,4 @@ export const CartDropdown = () => {
       )}
     </div>
   );
-}
+};

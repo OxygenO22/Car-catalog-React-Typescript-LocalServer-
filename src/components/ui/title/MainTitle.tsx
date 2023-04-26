@@ -8,5 +8,5 @@ interface IMainTitle {
 export const MainTitle: FC<IMainTitle> = (props) => {
   return (
     <h1 className={styles.title}>{props.name}</h1>
-  )
-}
+  );
+};

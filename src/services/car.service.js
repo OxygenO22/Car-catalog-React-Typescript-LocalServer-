@@ -1,7 +1,5 @@
 
 
-export const CarService = {
-  getAll() {
+export const CarService = {getAll() {
     
-  }
-}
+}};

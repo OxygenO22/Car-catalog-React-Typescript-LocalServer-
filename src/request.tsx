@@ -11,16 +11,13 @@ const requestApi = async (
 
   const token = sessionStorage.getItem("JWT") || localStorage.getItem("JWT");
   if (typeRequest === "GET") {
-    return await fetch(url, {
-      headers: new Headers({ Authorization: `Bearer ${token}` }),
-    });
+    return await fetch(url, 
+      { headers: new Headers({ Authorization: `Bearer ${token}` }),});
   }
   return await fetch(url, {
     method: typeRequest,
-    headers: new Headers({
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json;charset=utf-8",
-    }),
+    headers: new Headers({Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json;charset=utf-8",}),
     body: JSON.stringify(value) || formData,
   });
 };

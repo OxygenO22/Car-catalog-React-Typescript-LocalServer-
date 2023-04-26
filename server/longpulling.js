@@ -13,7 +13,7 @@ app.use(express.json());
 app.get("/get-messages", (req, res) => {
   emitter.once("newMessage", (message) => {
     res.json(message);
-  })
+  });
 });
 
 app.post("/new-messages", (req, res) => {
