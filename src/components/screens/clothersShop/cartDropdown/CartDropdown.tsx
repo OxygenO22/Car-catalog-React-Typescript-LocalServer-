@@ -2,9 +2,9 @@ import { Button } from "../../../ui/buttons/Button";
 import { IProduct } from "../../../../store/product/Product.type";
 import { MainTitle } from "../../../ui/title/MainTitle";
 import styles from "./CartDropdown.module.scss";
+import { useActions } from "../../../hooks/useActions";
 import { useOutside } from "../../../hooks/useOutside";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import { useActions } from "../../../hooks/useActions";
 
 export const CartDropdown = () => {
   const {
