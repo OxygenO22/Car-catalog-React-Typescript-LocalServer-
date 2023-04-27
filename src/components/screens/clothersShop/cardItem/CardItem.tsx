@@ -11,7 +11,7 @@ export const CardItem: FC<{product: IProduct}> = ({product}) => {
 
   const {cart} = useTypedSelector(state => state);
 
-  const isExistInCart = cart.some((p) => p.id === product.id);
+  const isExistInCart = cart.some((p: any) => p.id === product.id);
 
   return (
     <>

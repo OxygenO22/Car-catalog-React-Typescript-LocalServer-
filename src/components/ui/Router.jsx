@@ -8,12 +8,14 @@ import { LongPulling } from "../chat/LongPulling";
 import { MainTitle } from "./title/MainTitle";
 import { ReduxBank } from "../screens/bank/ReduxBank";
 import { TaskManager } from "../screens/taskManager/TaskManager";
+import { Cars } from "../screens/cars/Cars";
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Home/>} path="/" />
+        <Route element={<Cars/>} path="/CarsCatalog" />
         <Route element={<CarDetail/>} path="/car/:id" />
         <Route element={<LongPulling/>} path="/chatLP" />
         <Route element={<EventSourcing /> } path="/chatES" />

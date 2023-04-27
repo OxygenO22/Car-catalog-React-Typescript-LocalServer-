@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import styles from "../home/Home.module.scss";
+import styles from "./Cars.module.scss";
 import { useActions } from "../../hooks/useActions";
 
 export interface car {
