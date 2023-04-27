@@ -15,18 +15,25 @@ export const cashReducer = (state = defaultState, action: any) => {
   }
 }; */
 
-const initialState = {cash: 5};
+/* interface ICash {
+  cash: number
+} */
+
+const initialState/* : ICash */ = {
+  cash: 5
+};
 
 export const cashSlice = createSlice({
   name: "cash",
   initialState,
-  reducers: {addCash: (state, action) => {
-    return { ...state, cash: state.cash + action.payload };
+  reducers: {
+    addCash: (state = initialState, action) => {
+      return state + action.payload;
   },
-  getCash: (state, action) => {
-    return { ...state, cash: state.cash - action.payload };
+    getCash: (state, action) => {
+      return state - action.payload;
   },}
 });
 
-export const cartReducer = cashSlice.reducer;
-export const cartAction = cashSlice.actions;
+export const cashReducer = cashSlice.reducer;
+export const cashAction = cashSlice.actions;
