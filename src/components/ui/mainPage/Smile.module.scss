@@ -15,6 +15,7 @@
   height: 300px;
   border-radius: 50%;
   background: #ffcd00;
+  z-index: 10;
 
   &::before {
     content: "";
@@ -36,6 +37,11 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
   }
+
+    &:hover .eye {
+      transition: background 3s;
+      background: #dd0606;
+    }
 }
 
 .eyes {
@@ -51,6 +57,7 @@
     border-radius: 50%;
     margin: 0 15px;
     background: #fff;
+    transition: background 0.5s;
 
     &::before {
       content: "";

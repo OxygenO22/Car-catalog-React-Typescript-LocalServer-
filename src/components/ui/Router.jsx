@@ -9,6 +9,7 @@ import { MainTitle } from "./title/MainTitle";
 import { ReduxBank } from "../screens/bank/ReduxBank";
 import { TaskManager } from "../screens/taskManager/TaskManager";
 import { Cars } from "../screens/cars/Cars";
+import { ToDo } from "../screens/toDo/ToDo";
 
 export const Router = () => {
   return (
@@ -22,6 +23,7 @@ export const Router = () => {
         <Route element={<ReduxBank /> } path="/Redux" />
         <Route element={<ClothersShop /> } path="/ReduxToolkit" />
         <Route element={<TaskManager /> } path="/TaskManager" />
+        <Route element={<ToDo /> } path="/ToDo" />
         <Route element={<MainTitle name="Not found" />} path="*" />
       </Routes>
     </BrowserRouter>

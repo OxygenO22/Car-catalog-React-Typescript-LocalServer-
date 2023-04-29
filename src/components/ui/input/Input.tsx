@@ -2,9 +2,10 @@ import { FC } from "react";
 import styles from "./Input.module.scss";
 
 interface IInput {
-  placeholder: string;
-  onChange: any;
-  value: string;
+  placeholder?: string;
+  onChange?: any;
+  value?: string;
+  type?: string;
 }
 
 export const Input: FC<IInput> = (props) => {
@@ -14,6 +15,7 @@ export const Input: FC<IInput> = (props) => {
       placeholder={props.placeholder}
       onChange={props.onChange}
       value={props.value}
+      type={props.type}
     />
   );
 };
