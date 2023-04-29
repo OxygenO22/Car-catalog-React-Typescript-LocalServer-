@@ -1,0 +1,35 @@
+.todo__inputWrapper {
+  margin-bottom: 20px;
+}
+
+.todo__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+}
+
+.todo__text {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 0 20px;
+}
+
+.todo__remove {
+  font-size: 2em;
+  color: rgb(204, 104, 104);
+  cursor: pointer;
+  transition: .2s;
+  &:hover {
+    color: #f00;
+  }
+}

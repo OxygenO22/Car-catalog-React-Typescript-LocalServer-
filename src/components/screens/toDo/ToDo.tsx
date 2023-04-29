@@ -27,30 +27,43 @@ export const ToDo = () => {
       ])
       setText("");
     }
-  }
+  };
+
+  const removeTodo = (todoId: string) => {
+    setTodos(todos.filter(todo => todo.id !== todoId))
+  };
 
   return (
     <div>
       <MainTitle name="To Do List (Redux Toolkit)" />
       <RouteButton path="/" name="Back" />
       <div>
-        <label>
-          <Input
-            placeholder="Add to do"
-            value={text}
-            onChange={(e: any) => setText(e.target?.value)}
-          />
-          <Button onClick={addTodo} name="Add To Do" />
-        </label>
-        <ul>
-          {todos.map((todo: IAddTodo) => (
-            <li key={todo.id}>
-              <Input type="checkbox" />
-              <span>{todo.text}</span>
-              <span>&times;</span>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.todo__inputWrapper}>
+          <label>
+            <Input
+              placeholder="Add to do"
+              value={text}
+              onChange={(e: any) => setText(e.target?.value)}
+            />
+            <Button onClick={addTodo} name="Add To Do" />
+          </label>
+        </div>
+        <div className={styles.todo__wrapper}>
+          <ul>
+            {todos.map((todo: IAddTodo) => (
+              <li className={styles.todo__item} key={todo.id}>
+                <Input type="checkbox" />
+                <span className={styles.todo__text}>{todo.text}</span>
+                <span
+                  className={styles.todo__remove}
+                  onClick={() => removeTodo(todo.id)}
+                >
+                  &times;
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
