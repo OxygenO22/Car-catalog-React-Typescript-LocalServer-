@@ -9,6 +9,7 @@ export const HomeMenu = () => {
       <RouteButton path="/ReduxToolkit" name="Redux Toolkit" />
       <RouteButton path="/TaskManager" name="Task Manager" />
       <RouteButton path="/CarsCatalog" name="Cars Catalog" />
+      <RouteButton path="/ToDo" name="To Do" />
     </>
   );
 };

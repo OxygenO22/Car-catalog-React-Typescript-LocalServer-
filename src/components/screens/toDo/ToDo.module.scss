@@ -1,0 +1,50 @@
+.todo__inputWrapper {
+  margin-bottom: 20px;
+}
+
+.todo__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo__items {
+  list-style: none;
+}
+
+.todo__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #fff;
+}
+
+.todo__checkbox {
+  width: 1.5em;
+  height: 1.5em;
+  cursor: pointer;
+}
+
+.todo__text {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin: 0 20px;
+}
+
+.todo__checkbox:checked + .todo__text {
+    text-decoration: line-through;
+  }
+
+.todo__remove {
+  font-size: 2em;
+  font-weight: 900;
+  color: rgb(204, 104, 104);
+  cursor: pointer;
+  transition: .2s;
+  &:hover {
+    color: #f00;
+  }
+}
