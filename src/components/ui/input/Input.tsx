@@ -6,6 +6,7 @@ interface IInput {
   onChange?: any;
   value?: string;
   type?: string;
+  checked?: any;
 }
 
 export const Input: FC<IInput> = (props) => {
@@ -16,6 +17,7 @@ export const Input: FC<IInput> = (props) => {
       onChange={props.onChange}
       value={props.value}
       type={props.type}
+      checked={props.checked}
     />
   );
 };
