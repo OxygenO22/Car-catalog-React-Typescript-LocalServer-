@@ -13,7 +13,9 @@ export const ToDo = () => {
   const dispatch = useDispatch();
 
   const addTask = () => {
-    dispatch(addTodo({text}));
+    if (text) {
+      dispatch(addTodo({text}));
+    }
     setText("");
   };
 
