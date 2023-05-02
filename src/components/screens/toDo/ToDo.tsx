@@ -13,7 +13,7 @@ export const ToDo = () => {
   const dispatch = useDispatch();
 
   const addTask = () => {
-    dispatch(addTodo({text}));
+    text && dispatch(addTodo({text}));
     setText("");
   };
 
