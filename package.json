@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server -w server/carsDB.json -p 3001",
+    "server": "json-server -w server/serverDB.json -p 3001",
     "start-chat": "nodemon server/eventsource.js",
     "lint": "eslint src/**.tsx src/**.ts .",
     "fix-lint": "eslint src/**.tsx src/**.ts . --fix",

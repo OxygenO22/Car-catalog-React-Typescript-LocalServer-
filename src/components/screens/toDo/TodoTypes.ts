@@ -1,5 +1,6 @@
 export interface IAddTodo {
-  id: string;
-  text: string;
+  userId: number;
+  id: number;
+  title: string;
   completed: boolean;
 }
