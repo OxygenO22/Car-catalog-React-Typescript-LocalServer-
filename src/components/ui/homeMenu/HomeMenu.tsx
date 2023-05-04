@@ -5,7 +5,7 @@ export const HomeMenu = () => {
     <>
       <RouteButton path="/chatLP" name="ChatLP" />
       <RouteButton path="/chatES" name="ChatES" />
-      <RouteButton path="/Redux" name="Redux" />
+      <RouteButton path="/ReduxBank" name="Redux Bank" />
       <RouteButton path="/ReduxToolkit" name="Redux Toolkit" />
       <RouteButton path="/TaskManager" name="Task Manager" />
       <RouteButton path="/CarsCatalog" name="Cars Catalog" />

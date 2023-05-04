@@ -26,7 +26,7 @@ export const ToDo = () => {
       <MainTitle name="To Do List (Redux Toolkit)" />
       <RouteButton path="/" name="Back" />
       <div>
-        <div className={styles.todo__inputWrapper}>
+        <div className={styles.todo__inputWrapper}> 
           <InputField
             title={title}
             handleSubmit={addTask}

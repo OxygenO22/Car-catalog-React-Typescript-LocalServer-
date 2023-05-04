@@ -17,7 +17,7 @@ export const TodoItem: FC<IAddTodo> = ({ id, title, completed }) => {
       <span className={styles.todo__text}>{title}</span>
       <span
         className={styles.todo__remove}
-        onClick={() => dispatch(deleteTodo(id))}
+        onClick={() => dispatch(deleteTodo(id))} 
       >
         &times;
       </span>
