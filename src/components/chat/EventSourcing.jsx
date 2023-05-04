@@ -4,6 +4,7 @@ import { Button } from "../ui/buttons/Button";
 import { MainTitle } from "../ui/title/MainTitle";
 import { RouteButton } from "../ui/buttons/RouteButton";
 import styles from "./LongPulling.module.scss";
+import { Input } from "../ui/input/Input";
 
 export const EventSourcing = () => {
   const [messages, setMessages] = useState([]);
@@ -35,12 +36,10 @@ export const EventSourcing = () => {
       <RouteButton path="/" name="Back" />
 
       <div className={styles.form}>
-        <input 
-          className={styles.input} 
-          type="text" 
+        <Input 
           placeholder="Message"
           value={value}
-          onChange={e => setValue(e.target.value)} 
+          onChange={e => setValue(e.target.value)}
         />
         <Button onClick={sendMessage} name="Send message" />
       </div>

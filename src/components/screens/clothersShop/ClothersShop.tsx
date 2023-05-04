@@ -13,7 +13,7 @@ export const ClothersShop = () => {
 
   return (
     <div className={styles.clothersshop__wrapper}>
-      <MainTitle name="Clothers shop (Redux Toolkit)" />
+      <MainTitle name="Clothers shop (Redux Toolkit Query)" />
       <RouteButton path="/" name="Back" />
       <div className={styles.card__wrapper}>
 

@@ -20,8 +20,8 @@ export const Router = () => {
         <Route element={<CarDetail/>} path="/car/:id" />
         <Route element={<LongPulling/>} path="/chatLP" />
         <Route element={<EventSourcing /> } path="/chatES" />
-        <Route element={<ReduxBank /> } path="/ReduxBank" />
-        <Route element={<ClothersShop /> } path="/ReduxToolkit" />
+        <Route element={<ReduxBank /> } path="/Bank" />
+        <Route element={<ClothersShop /> } path="/ClothersShop" />
         <Route element={<TaskManager /> } path="/TaskManager" />
         <Route element={<ToDo /> } path="/ToDo" />
         <Route element={<MainTitle name="Not found" />} path="*" />

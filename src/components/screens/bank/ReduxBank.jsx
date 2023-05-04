@@ -14,7 +14,7 @@ export const ReduxBank = () => {
 
   return (
     <div className={styles.reduxbank__wrapper}>
-      <MainTitle name="Redux Bank" />
+      <MainTitle name="Bank (Redux Toolkit)" />
       <RouteButton path="/" name="Back" />
       <div className={styles.cash__wrapper}>
         <p className={styles.cash__text}>{cash}</p>

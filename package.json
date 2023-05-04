@@ -28,7 +28,7 @@
     "ws": "^8.13.0"
   },
   "scripts": {
-    "dev": "cuncurrently \"npm run server\" \"npm start\"",
+    "dev": "concurrently \"npm run server\" \"npm start\" \"npm run start-chat\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

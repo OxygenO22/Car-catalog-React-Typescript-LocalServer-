@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { CarItem } from "../cars/CarItem";
 import { CARS_URL } from "../../../constants";
+import { RouteButton } from "../../ui/buttons/RouteButton";
 
 export const CarDetail = () => {
   const {id} = useParams();
@@ -20,8 +21,8 @@ export const CarDetail = () => {
   (!car) && <p>Loading...</p>;
 
   return (
-    <div>
-      <Link style={{color: "white", marginBottom: "20px"}} to="/">Back</Link>
+    <div >
+      <RouteButton path="/CarsCatalog" name="Back" />
       <CarItem car={car} />
     </div>
   );
