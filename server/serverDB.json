@@ -134,5 +134,23 @@
       "title": "Learn TypeScript",
       "completed": false
     }
+  ],
+  "goods": [
+    {
+      "id": 1,
+      "name": "Milk"
+    },
+    {
+      "id": 2,
+      "name": "Bread"
+    },
+    {
+      "id": 3,
+      "name": "Butter"
+    },
+    {
+      "name": "Garlik",
+      "id": 4
+    }
   ]
 }

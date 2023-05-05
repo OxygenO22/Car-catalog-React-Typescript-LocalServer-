@@ -7,7 +7,7 @@ import { Home } from "../screens/home/Home";
 import { LongPulling } from "../chat/LongPulling";
 import { MainTitle } from "./title/MainTitle";
 import { ReduxBank } from "../screens/bank/ReduxBank";
-import { TaskManager } from "../screens/taskManager/TaskManager";
+import { GoodsList } from "../screens/goodsList/GoodsList";
 import { Cars } from "../screens/cars/Cars";
 import { ToDo } from "../screens/toDo/ToDo";
 
@@ -22,7 +22,7 @@ export const Router = () => {
         <Route element={<EventSourcing /> } path="/chatES" />
         <Route element={<ReduxBank /> } path="/Bank" />
         <Route element={<ClothersShop /> } path="/ClothersShop" />
-        <Route element={<TaskManager /> } path="/TaskManager" />
+        <Route element={<GoodsList /> } path="/GoodsList" />
         <Route element={<ToDo /> } path="/ToDo" />
         <Route element={<MainTitle name="Not found" />} path="*" />
       </Routes>

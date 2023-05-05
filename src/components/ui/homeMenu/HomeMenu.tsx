@@ -7,7 +7,7 @@ export const HomeMenu = () => {
       <RouteButton path="/chatES" name="ChatES" />
       <RouteButton path="/Bank" name="Bank" />
       <RouteButton path="/ClothersShop" name="Clothers Shop" />
-      <RouteButton path="/TaskManager" name="Task Manager" />
+      <RouteButton path="/GoodsList" name="List of Goods" />
       <RouteButton path="/CarsCatalog" name="Cars Catalog" />
       <RouteButton path="/ToDo" name="To Do" />
     </>
