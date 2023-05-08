@@ -10,6 +10,7 @@ import { ReduxBank } from "../screens/bank/ReduxBank";
 import { GoodsList } from "../screens/goodsList/GoodsList";
 import { Cars } from "../screens/cars/Cars";
 import { ToDo } from "../screens/toDo/ToDo";
+import { Tests } from "../screens/tests/Tests";
 
 export const Router = () => {
   return (
@@ -24,6 +25,7 @@ export const Router = () => {
         <Route element={<ClothersShop /> } path="/ClothersShop" />
         <Route element={<GoodsList /> } path="/GoodsList" />
         <Route element={<ToDo /> } path="/ToDo" />
+        <Route element={<Tests /> } path="/Tests" />
         <Route element={<MainTitle name="Not found" />} path="*" />
       </Routes>
     </BrowserRouter>

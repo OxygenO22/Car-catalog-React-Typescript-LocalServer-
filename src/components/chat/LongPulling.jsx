@@ -4,6 +4,7 @@ import { Button } from "../ui/buttons/Button";
 import { MainTitle } from "../ui/title/MainTitle";
 import { RouteButton } from "../ui/buttons/RouteButton";
 import styles from "./LongPulling.module.scss";
+import { Input } from "../ui/input/Input";
 
 export const LongPulling = () => {
   const [messages, setMessages] = useState([]);
@@ -15,7 +16,7 @@ export const LongPulling = () => {
 
   const subscribe = async () => {
     try {
-      const {data} = await axios.get("http://localhost:5000/get-messages");
+      const {data} = await axios.get("http://localhost:5001/get-messages");
       setMessages(prev => [data, ...prev]);
       await subscribe();
     } catch (e) {
@@ -26,7 +27,7 @@ export const LongPulling = () => {
   };
 
   const sendMessage = async () => {
-    await axios.post("http://localhost:5000/new-messages", 
+    await axios.post("http://localhost:5001/new-messages", 
     {
       message: value,
       id: Date.now()
@@ -39,12 +40,10 @@ export const LongPulling = () => {
       <RouteButton path="/" name="Back" />
 
       <div className={styles.form}>
-        <input 
-          className={styles.input} 
-          type="text" 
+        <Input 
           placeholder="Message"
           value={value}
-          onChange={e => setValue(e.target.value)} 
+          onChange={e => setValue(e.target.value)}
         />
         <Button onClick={sendMessage} name="Send message" />
       </div>

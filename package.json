@@ -28,13 +28,14 @@
     "ws": "^8.13.0"
   },
   "scripts": {
-    "dev": "concurrently \"npm run server\" \"npm start\" \"npm run start-chat\"",
+    "dev": "concurrently \"npm run server\" \"npm start\" \"npm run start-chat-es\" \"npm run start-chat-lp\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "json-server -w server/serverDB.json -p 3001",
-    "start-chat": "nodemon server/eventsource.js",
+    "start-chat-es": "nodemon server/eventsource.js",
+    "start-chat-lp": "nodemon server/longpulling.js",
     "lint": "eslint src/**.tsx src/**.ts .",
     "fix-lint": "eslint src/**.tsx src/**.ts . --fix",
     "format": "npx prettier --write ."

@@ -10,6 +10,7 @@ export const HomeMenu = () => {
       <RouteButton path="/GoodsList" name="List of Goods" />
       <RouteButton path="/CarsCatalog" name="Cars Catalog" />
       <RouteButton path="/ToDo" name="To Do" />
+      <RouteButton path="/Tests" name="Tests" />
     </>
   );
 };
