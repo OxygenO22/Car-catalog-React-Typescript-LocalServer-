@@ -133,12 +133,6 @@
       "id": 19,
       "title": "Learn TypeScript",
       "completed": false
-    },
-    {
-      "userId": 1,
-      "id": 20,
-      "title": "Make test for Tinkoff",
-      "completed": false
     }
   ],
   "goods": [
