@@ -1,45 +1,38 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { IAddTodo } from "../../components/screens/toDo/TodoTypes";
+import { createSlice, createAsyncThunk, PayloadAction, AnyAction } from "@reduxjs/toolkit";
+import { IAddTodo, ITodosState } from "../../components/screens/toDo/TodoTypes";
 import { TODOS_URL } from "../../constants";
 
-export const fetchTodos: any = createAsyncThunk(
+export const fetchTodos = createAsyncThunk<IAddTodo[], undefined, {rejectValue: string}>(
   "todos/fetchTodos",
   async function(_, {rejectWithValue}) {
-    try {
-      const response = await fetch(TODOS_URL);
-      if (!response.ok) {
-        throw new Error("Server error!");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    const response = await fetch(TODOS_URL);
+    if (!response.ok) {
+      return rejectWithValue("Server error!");
     }
+    const data = await response.json();
+    return data;
   }
 );
 
-export const deleteTodo: any = createAsyncThunk(
+export const deleteTodo = createAsyncThunk<string, string, {rejectValue: string}>(
   "todos/deleteTodo",
-  async function(id, {rejectWithValue, dispatch}) {
-    try {
+  async function(id, {rejectWithValue}) {
+    
       const response = await fetch(TODOS_URL + `/${id}`, {
         method: "DELETE"
       });
       if (!response.ok) {
-        throw new Error("Can't delete task. Server error!");
+        return rejectWithValue("Can't delete task. Server error!");
       }
-      dispatch(removeTodo({id}));
-    } catch (error: any) {
-      return rejectWithValue(error.message);
-    }
+      return id;
   }
 );
 
-export const toggleStatus: any = createAsyncThunk(
+export const toggleStatus = createAsyncThunk<IAddTodo, number, {rejectValue: string, state: {todos: ITodosState}}>(
   "todos/toggleStatus",
-  async function(id, {rejectWithValue, dispatch, getState}: any) {
-    const todo: IAddTodo = getState().todos.todos.find((todo: any) => todo.id === id);
-    try {
+  async function(id, {rejectWithValue, getState}) {
+    const todo = getState().todos.list.find(todo => todo.id === id);
+      if (todo) {
       const response = await fetch(TODOS_URL + `/${id}`, {
         method: "PATCH",
         headers: {
@@ -50,23 +43,22 @@ export const toggleStatus: any = createAsyncThunk(
         })
       });
       if (!response.ok) {
-        throw new Error("Can't toggle status. Server error!");
+        return rejectWithValue("Can't toggle status. Server error!");
       }
-      dispatch(toggleTodoComplete({id}));
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+      return (await response.json()) as IAddTodo;
     }
+    return rejectWithValue("No such todo in the list!"); 
   }
 );
 
-export const addNewTodo: any = createAsyncThunk(
+export const addNewTodo = createAsyncThunk<IAddTodo, string, {rejectValue: string, state: {todos: ITodosState}}>(
   "todos/addNewTodo",
-  async function(title: string, {rejectWithValue, dispatch, getState}: any) {
-    const todos = getState().todos.todos.map((item: any) => item.id);
-    try {
+  async function(title, {rejectWithValue, getState}) {
+    const todosId = getState().todos.list.map(item => item.id);
+    
       const todo: IAddTodo = {
         userId: 1,
-        id: Math.max(...todos) + 1,
+        id: Math.max(...todosId) + 1,
         title: title,
         completed: false
       }
@@ -79,54 +71,55 @@ export const addNewTodo: any = createAsyncThunk(
         body: JSON.stringify(todo)
       });
       if (!response.ok) {
-        throw new Error("Can't add task. Server error!");
+        return rejectWithValue("Can't add task. Server error!");
       }
-      const data = await response.json();
-      dispatch(addTodo(data));
-    } catch (error: any) {
-      return rejectWithValue(error.message);
-    }
+      return (await response.json()) as IAddTodo;
   }
 );
 
-const setError = (state: any, action: any) => {
-  state.status = "rejected";
-  state.error = action.payload;
+const initialState: ITodosState = {
+  list: [],
+  loading: false,
+  error: null
 }
 
 const todoSlice = createSlice({
   name: "todos",
-  initialState: {
-    todos: <IAddTodo[]> [],
-    status: <string | null> null,
-    error: <string | null> null
-  },
-  reducers: {
-    addTodo(state, action) {
-      state.todos.push(action.payload);
-    },
-    removeTodo(state, action) {
-      state.todos = state.todos.filter(todo => todo.id !== action.payload.id);
-    },
-    toggleTodoComplete(state, action) {
-      const toggledTodo: any = state.todos.find(todo => todo.id === action.payload.id);
-      toggledTodo.completed = !toggledTodo.completed;
-    },
-  },
-  extraReducers: {
-    [fetchTodos.pending]: (state) => {
-      state.status = "loading";
-      state.error = null;
-    },
-    [fetchTodos.fulfilled]: (state, action) => {
-      state.status = "resolved";
-      state.todos = action.payload;
-    },
-    [fetchTodos.rejected]: setError,
-    [deleteTodo.rejected]: setError,
-    [toggleStatus.rejected]: setError,
-  }
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchTodos.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchTodos.fulfilled, (state, action) => {
+        state.list = action.payload;
+        state.loading = false;
+      })
+      .addCase(addNewTodo.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(addNewTodo.fulfilled, (state, action) => {
+        state.list.push(action.payload);
+      })
+      .addCase(toggleStatus.fulfilled, (state, action) => {
+        const toggledTodo = state.list.find(todo => todo.id === action.payload.id);
+        if (toggledTodo) {
+          toggledTodo.completed = !toggledTodo.completed;
+        }
+      })
+      .addCase(deleteTodo.fulfilled, (state, action) => {
+        state.list = state.list.filter(todo => todo.id !== action.payload);
+      })
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        state.error = action.payload;
+        state.loading = false;
+      })
+  } 
 });
-
-export const {addTodo, removeTodo, toggleTodoComplete} = todoSlice.actions;
 export default todoSlice.reducer;
+
+function isError(action: AnyAction) {
+  return action.type.endsWith("rejected");
+}

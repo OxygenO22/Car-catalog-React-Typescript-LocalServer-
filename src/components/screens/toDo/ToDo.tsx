@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ToDo.module.scss";
 import { MainTitle } from "../../ui/title/MainTitle";
 import { RouteButton } from "../../ui/buttons/RouteButton";
 import { TodoList } from "./TodoList";
-import { InputField } from "./InputField";
-import { useDispatch, useSelector } from "react-redux";
+import { InputField } from "./InputField"; 
+import { useAppDispatch, useTypedSelector } from "../../hooks/useTypedSelector";
 import { addNewTodo, fetchTodos } from "../../../store/toDoSlice/todoSlice";
 
 export const ToDo = () => {
   const [title, setText] = useState("");
-  const {status, error} = useSelector((state: any) => state.todos);
-  const dispatch = useDispatch();
+  const { loading, error } = useTypedSelector(state => state.todos);
+  const dispatch = useAppDispatch();
 
   const addTask = () => {
     title && dispatch(addNewTodo(title));
@@ -34,7 +34,7 @@ export const ToDo = () => {
           />
         </div>
         <div className={styles.todo__wrapper}>
-          {status === "loading" && <h2 className={styles.todo__loading}>Loading...</h2>}
+          {loading && <h2 className={styles.todo__loading}>Loading...</h2>}
           {error && <h2 className={styles.todo__error}>An error occured: {error}</h2>}
           <TodoList />
         </div>

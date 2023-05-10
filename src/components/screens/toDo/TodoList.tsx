@@ -1,12 +1,11 @@
-import React from 'react'
-import { TodoItem } from './TodoItem';
-import { IAddTodo } from './TodoTypes';
+import { TodoItem } from "./TodoItem";
+import { IAddTodo } from "./TodoTypes";
 import styles from "./ToDo.module.scss";
-import { useSelector } from 'react-redux';
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 
 export const TodoList = () => {
-  const todos = useSelector((state: any) => state.todos.todos);
+  const todos = useTypedSelector(state => state.todos.list);
   return (
     <ul className={styles.todo__items}>
       {todos.map((todo: 
