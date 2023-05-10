@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
-import { Input } from '../../ui/input/Input';
-import { Button } from '../../ui/buttons/Button';
+import { FC } from "react";
+import { Input } from "../../ui/input/Input";
+import { Button } from "../../ui/buttons/Button";
 
 interface IInputField {
   title: string;
-  handleInput: any;
-  handleSubmit: any;
+  handleInput: (str: string) => void;
+  handleSubmit: () => void;
 }
 
 export const InputField: FC<IInputField> = ({ title, handleInput, handleSubmit }) => {
