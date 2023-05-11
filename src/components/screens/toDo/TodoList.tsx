@@ -8,8 +8,7 @@ export const TodoList = () => {
   const todos = useTypedSelector(state => state.todos.list);
   return (
     <ul className={styles.todo__items}>
-      {todos.map((todo: 
-      IAddTodo) => (
+      {todos.map(todo => (
         <TodoItem
           key={todo.id}
           {...todo}
