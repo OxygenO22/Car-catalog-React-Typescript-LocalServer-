@@ -4,6 +4,7 @@ import { productApi } from "./product/Product.api";
 import todoSlice from "./toDoSlice/todoSlice";
 import cashSlice from "./cashReducer/cashSlice";
 import { GoodsApi } from "../components/screens/goodsList/GoodsApi";
+import  filterSlice  from "./toDoSlice/filterSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     [GoodsApi.reducerPath]: GoodsApi.reducer, 
     cart: cartReducer, 
     todos: todoSlice,
-    cash: cashSlice
+    cash: cashSlice,
+    filters: filterSlice
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat([productApi.middleware, GoodsApi.middleware]),
 });

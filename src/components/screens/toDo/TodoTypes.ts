@@ -10,3 +10,11 @@ export interface ITodosState {
   loading: boolean;
   error: string | null;
 }
+
+export interface IList {
+  list: IAddTodo[];
+}
+
+export interface IFilterState {
+  filters: string;
+}
