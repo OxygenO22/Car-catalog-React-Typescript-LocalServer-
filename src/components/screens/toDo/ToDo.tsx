@@ -6,6 +6,7 @@ import { TodoList } from "./TodoList";
 import { InputField } from "./InputField"; 
 import { useAppDispatch, useTypedSelector } from "../../hooks/useTypedSelector";
 import { addNewTodo, fetchTodos } from "../../../store/toDoSlice/todoSlice";
+import { Filters } from "./Filters";
 
 export const ToDo = () => {
   const [title, setText] = useState("");
@@ -33,6 +34,7 @@ export const ToDo = () => {
             handleInput={setText}
           />
         </div>
+        <Filters />
         <div className={styles.todo__wrapper}>
           {loading && <h2 className={styles.todo__loading}>Loading...</h2>}
           {error && <h2 className={styles.todo__error}>An error occured: {error}</h2>}
