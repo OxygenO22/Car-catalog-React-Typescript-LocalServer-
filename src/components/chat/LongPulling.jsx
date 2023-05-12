@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "../ui/buttons/Button";
-import { MainTitle } from "../ui/title/MainTitle";
-import { RouteButton } from "../ui/buttons/RouteButton";
 import styles from "./LongPulling.module.scss";
 import { Input } from "../ui/input/Input";
+import { Header } from "../ui/header/Header";
 
 export const LongPulling = () => {
   const [messages, setMessages] = useState([]);
@@ -36,8 +35,7 @@ export const LongPulling = () => {
 
   return (
     <div className={styles.wrapper}>
-      <MainTitle name="Chat - Long Pulling" />
-      <RouteButton path="/" name="Back" />
+      <Header place="chatLP" />
 
       <div className={styles.form}>
         <Input 

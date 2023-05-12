@@ -1,11 +1,10 @@
-import { MainTitle } from "../../ui/title/MainTitle";
-import { RouteButton } from "../../ui/buttons/RouteButton";
-import styles from "./GoodsList.module.scss";
 import { useGetGoodsQuery, useAddGoodMutation, useDeleteGoodMutation } from "./GoodsApi";
-import { IGoodsList } from "./GoodsTypes";
-import { useState } from "react";
-import { Input } from "../../ui/input/Input";
 import { Button } from "../../ui/buttons/Button";
+import { Header } from "../../ui/header/Header";
+import { IGoodsList } from "./GoodsTypes";
+import { Input } from "../../ui/input/Input";
+import styles from "./GoodsList.module.scss";
+import { useState } from "react";
 
 export const GoodsList = () => {
   const [count, setCount] = useState("");
@@ -27,8 +26,7 @@ export const GoodsList = () => {
 
   return (
     <div className={styles.taskManager__wrapper}>
-      <MainTitle name="List of goods (Redux Toolkit Query)" />
-      <RouteButton path="/" name="Back" />
+      <Header place="goodsList" />
       {isLoading && <h1>Loading...</h1>}
       <div>
         <Input
@@ -48,7 +46,9 @@ export const GoodsList = () => {
       </div>
       <ul>
         {data.map((item: IGoodsList) => (
-          <li key={item.id} onClick={() => handleDeleteGood(item.id)}>{item.name}</li>
+          <li key={item.id} onClick={() => handleDeleteGood(item.id)}>
+            {item.name}
+          </li>
         ))}
       </ul>
     </div>

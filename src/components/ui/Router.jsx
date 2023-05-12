@@ -11,6 +11,10 @@ import { GoodsList } from "../screens/goodsList/GoodsList";
 import { Cars } from "../screens/cars/Cars";
 import { ToDo } from "../screens/toDo/ToDo";
 import { Tests } from "../screens/tests/Tests";
+import { Authorization } from "../screens/authorization/Authorization";
+import { AuthHomePage } from "../screens/authorization/AuthHomePage";
+import { AuthLoginPage } from "../screens/authorization/AuthLoginPage";
+import { AuthRegisterPage } from "../screens/authorization/AuthRegisterPage";
 
 export const Router = () => {
   return (
@@ -26,6 +30,10 @@ export const Router = () => {
         <Route element={<GoodsList /> } path="/GoodsList" />
         <Route element={<ToDo /> } path="/ToDo" />
         <Route element={<Tests /> } path="/Tests" />
+        <Route element={<Authorization /> } path="/Authorization" />
+        <Route element={<AuthHomePage /> } path="/Authorization/AuthHomePage" />
+        <Route element={<AuthLoginPage /> } path="/Authorization/AuthLoginPage" />
+        <Route element={<AuthRegisterPage /> } path="/Authorization/AuthRegisterPage" />
         <Route element={<MainTitle name="Not found" />} path="*" />
       </Routes>
     </BrowserRouter>

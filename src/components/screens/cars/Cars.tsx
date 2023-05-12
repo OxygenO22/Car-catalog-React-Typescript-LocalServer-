@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { CARS_URL } from "../../../constants";
 import { CarItem } from "./CarItem";
+import { CARS_URL } from "../../../constants";
 import { CreateCarForm } from "../createCarForm/CreateCarForm";
+import { Header } from "../../ui/header/Header";
 import { Input } from "../../ui/input/Input";
-import { MainTitle } from "../../ui/title/MainTitle";
-import { RouteButton } from "../../ui/buttons/RouteButton";
 import styles from "./Cars.module.scss";
 
 interface ICars {
@@ -91,8 +90,7 @@ export const Cars = () => {
 
   return (
     <div className={styles.prime__wrapper}>
-      <MainTitle name="Cars catalog" />
-      <RouteButton path="/" name="Back" />
+      <Header place="carsCatalog" />
       <CreateCarForm car={carsForCreateForm} />
       {/* <FindingSorting cars={cars} /> */}
 

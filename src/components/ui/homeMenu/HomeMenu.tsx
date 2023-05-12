@@ -11,6 +11,7 @@ export const HomeMenu = () => {
       <RouteButton path="/CarsCatalog" name="Cars Catalog" />
       <RouteButton path="/ToDo" name="To Do" />
       <RouteButton path="/Tests" name="Tests" />
+      <RouteButton path="/Authorization" name="Authorization" />
     </>
   );
 };

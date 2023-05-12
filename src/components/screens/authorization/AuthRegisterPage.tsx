@@ -1,0 +1,15 @@
+import { Header } from "../../ui/header/Header";
+import { RouteButton } from "../../ui/buttons/RouteButton";
+import styles from "./Authorization.module.scss";
+
+export const AuthRegisterPage = () => {
+  return (
+    <div>
+      <Header place="registerPage" />
+      <div className={styles.auth__wrapper}>
+        <p className={styles.auth__text}>Already have an account? </p>
+        <RouteButton path="/Authorization/AuthLoginPage" name="Sign in" />
+      </div>
+    </div>
+  );
+};

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import styles from "./ToDo.module.scss";
-import { MainTitle } from "../../ui/title/MainTitle";
-import { RouteButton } from "../../ui/buttons/RouteButton";
 import { TodoList } from "./TodoList";
 import { InputField } from "./InputField"; 
 import { useAppDispatch, useTypedSelector } from "../../hooks/useTypedSelector";
 import { addNewTodo, fetchTodos } from "../../../store/toDoSlice/todoSlice";
 import { Filters } from "./Filters";
+import { Header } from "../../ui/header/Header";
 
 export const ToDo = () => {
   const [title, setText] = useState("");
@@ -24,10 +23,9 @@ export const ToDo = () => {
 
   return (
     <div>
-      <MainTitle name="To Do List (Redux Toolkit)" />
-      <RouteButton path="/" name="Back" />
+      <Header  place="todo" />
       <div>
-        <div className={styles.todo__inputWrapper}> 
+        <div className={styles.todo__inputWrapper}>
           <InputField
             title={title}
             handleSubmit={addTask}
@@ -37,7 +35,9 @@ export const ToDo = () => {
         <Filters />
         <div className={styles.todo__wrapper}>
           {loading && <h2 className={styles.todo__loading}>Loading...</h2>}
-          {error && <h2 className={styles.todo__error}>An error occured: {error}</h2>}
+          {error && (
+            <h2 className={styles.todo__error}>An error occured: {error}</h2>
+          )}
           <TodoList />
         </div>
       </div>
