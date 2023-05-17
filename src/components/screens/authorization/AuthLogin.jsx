@@ -1,12 +1,12 @@
 import { AuthForm } from "./AuthForm";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../store/authorization/authSlice";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export const AuthLogin = () => {
   const dispatch = useDispatch();
-  const { push } = useHistory();
+ // const { push } = useHistory();
 
   const handleLogin = (email, password) => {
     const auth = getAuth();
@@ -17,7 +17,7 @@ export const AuthLogin = () => {
         id: user.uid,
         token: user.accessToken
       }));
-      push("/Authorization/AuthHomePage");
+     // push("/Authorization/AuthHomePage");
     })
       .catch(console.error)
   }
