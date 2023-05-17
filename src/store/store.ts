@@ -1,10 +1,11 @@
+import authSlice from "./authorization/authSlice"; 
 import { cartReducer } from "./cart/cart.slice";
+import cashSlice from "./cashReducer/cashSlice";
 import { configureStore } from "@reduxjs/toolkit";
+import  filterSlice  from "./toDoSlice/filterSlice";
+import { GoodsApi } from "../components/screens/goodsList/GoodsApi";
 import { productApi } from "./product/Product.api";
 import todoSlice from "./toDoSlice/todoSlice";
-import cashSlice from "./cashReducer/cashSlice";
-import { GoodsApi } from "../components/screens/goodsList/GoodsApi";
-import  filterSlice  from "./toDoSlice/filterSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     cart: cartReducer, 
     todos: todoSlice,
     cash: cashSlice,
-    filters: filterSlice
+    filters: filterSlice,
+    authorization: authSlice
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat([productApi.middleware, GoodsApi.middleware]),
 });
