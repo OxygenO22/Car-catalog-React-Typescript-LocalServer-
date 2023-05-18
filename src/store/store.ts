@@ -1,4 +1,4 @@
-import authSlice from "./authorization/authSlice"; 
+import userReducer from "./authorization/authSlice"; 
 import { cartReducer } from "./cart/cart.slice";
 import cashSlice from "./cashReducer/cashSlice";
 import { configureStore } from "@reduxjs/toolkit";
@@ -15,7 +15,7 @@ export const store = configureStore({
     todos: todoSlice,
     cash: cashSlice,
     filters: filterSlice,
-    authorization: authSlice
+    user: userReducer
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat([productApi.middleware, GoodsApi.middleware]),
 });

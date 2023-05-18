@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { FC, useState } from "react";
+import { IAuthForm } from "./AuthTypes";
 import { Input } from "../../ui/input/Input";
 import { Button } from "../../ui/buttons/Button";
 
-export const AuthForm = ({title, handleClick}: any) => {
+export const AuthForm: FC<IAuthForm> = ({title, handleClick}) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   return (
