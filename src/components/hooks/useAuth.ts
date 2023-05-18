@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
+import { useTypedSelector } from "./useTypedSelector";
 
-export const useAuth = () => {
-  const { email, token, id } = useSelector((state: any) => state.authorization);
+export function useAuth() {
+  const { email, token, id } = useTypedSelector(state => state.user);
   return {
     isAuth: !!email,
     email,
